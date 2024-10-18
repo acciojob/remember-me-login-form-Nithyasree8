@@ -26,11 +26,16 @@
 
 <h1>Login Form</h1>
 <form id="loginForm">
+    <label for="username">Username</label>
     <input type="text" id="username" placeholder="Username" required><br><br>
+
+    <label for="password">Password</label>
     <input type="password" id="password" placeholder="Password" required><br><br>
+
     <label>
         <input type="checkbox" id="checkbox"> Remember me
     </label><br><br>
+
     <input type="submit" id="submit" value="Submit">
 </form>
 
@@ -47,7 +52,7 @@
     window.onload = function() {
         const savedUsername = localStorage.getItem('username');
         const savedPassword = localStorage.getItem('password');
-        
+
         if (savedUsername && savedPassword) {
             existingUserDiv.style.display = 'block';
         }
@@ -69,7 +74,7 @@
         }
 
         alert(`Logged in as ${username}`);
-        
+
         // Show existing user button if details are saved
         if (rememberMe) {
             existingUserDiv.style.display = 'block';
