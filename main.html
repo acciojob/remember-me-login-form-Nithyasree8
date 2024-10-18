@@ -1,91 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-        }
-        form {
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+  <title>Login Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
 </head>
 <body>
-
-<h1>Login Form</h1>
-<form id="loginForm">
-    <label for="username">Username</label>
-    <input type="text" id="username" placeholder="Username" required><br><br>
-
-    <label for="password">Password</label>
-    <input type="password" id="password" placeholder="Password" required><br><br>
-
-    <label>
-        <input type="checkbox" id="checkbox"> Remember me
-    </label><br><br>
-
+  <h1>Login Form</h1>
+  <form id="login-form">
+    <label for="username">Username:</label>
+    <input type="text" id="username" placeholder="Username"><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Password"><br><br>
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox">Remember me</label><br><br>
     <input type="submit" id="submit" value="Submit">
-</form>
+  </form>
+  <button id="existing" style="display: none;">Login as existing user</button>
 
-<div id="existingUser" style="display:none;">
-    <button id="existing">Login as existing user</button>
-</div>
-
-<script>
-    const form = document.getElementById('loginForm');
-    const existingUserDiv = document.getElementById('existingUser');
-    const existingButton = document.getElementById('existing');
-
-    // Load saved user details if they exist
-    window.onload = function() {
-        const savedUsername = localStorage.getItem('username');
-        const savedPassword = localStorage.getItem('password');
-
-        if (savedUsername && savedPassword) {
-            existingUserDiv.style.display = 'block';
-        }
-    };
-
-    form.onsubmit = function(event) {
-        event.preventDefault(); // Prevent form from submitting the traditional way
-
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const rememberMe = document.getElementById('checkbox').checked;
-
-        if (rememberMe) {
-            localStorage.setItem('username', username);
-            localStorage.setItem('password', password);
-        } else {
-            localStorage.removeItem('username');
-            localStorage.removeItem('password');
-        }
-
-        alert(`Logged in as ${username}`);
-
-        // Show existing user button if details are saved
-        if (rememberMe) {
-            existingUserDiv.style.display = 'block';
-        }
-    };
-
-    existingButton.onclick = function() {
-        const savedUsername = localStorage.getItem('username');
-        alert(`Logged in as ${savedUsername}`);
-    };
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
+
