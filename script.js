@@ -21,6 +21,7 @@ loginForm.addEventListener("submit", (e) => {
     // Save username and password in local storage
     localStorage.setItem("username", username);
     localStorage.setItem("password", password);
+    existingBtn.style.display = "block";
   } else {
     // Remove stored username and password from local storage
     localStorage.removeItem("username");
@@ -37,3 +38,4 @@ existingBtn.addEventListener("click", () => {
   const existingUsername = localStorage.getItem("username");
   alert(`Logged in as ${existingUsername}`);
 });
+
